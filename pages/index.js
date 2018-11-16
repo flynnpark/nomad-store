@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import withLayout from '../lib/withLayout';
 
-export default () => (
+const Index = () => (
   <div>
     <Head>
       <title>Home | Nomad Store</title>
@@ -12,3 +13,5 @@ export default () => (
     </Link>
   </div>
 );
+
+export default withLayout(Index);
