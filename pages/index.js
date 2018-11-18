@@ -3,21 +3,19 @@ import Link from 'next/link';
 import withLayout from '../lib/withLayout';
 import PostLink from '../components/PostLink';
 
-const Index = () => (
+export default () => (
   <div>
     <Head>
       <title>Home | Nomad Store</title>
     </Head>
-    <h1>Posts</h1>
+    <h1>Movies</h1>
     <ul>
       <li>
-        <PostLink title={'Something'} />
+        <PostLink title={'Something'} id={0} />
       </li>
       <li>
-        <PostLink title={'Something else'}> /</PostLink>
+        <PostLink title={'Something else'} id={1} />
       </li>
     </ul>
   </div>
 );
-
-export default withLayout(Index);
