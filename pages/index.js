@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import withLayout from '../lib/withLayout';
 import PostLink from '../components/PostLink';
 
 export default () => (
