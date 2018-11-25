@@ -1,6 +1,5 @@
 import App, { Container } from 'next/app';
 import React from 'react';
-import Header from '../components/Header';
 
 export default class CustomApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -14,7 +13,6 @@ export default class CustomApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <Header />
         <Component {...pageProps} />
       </Container>
     );

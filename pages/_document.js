@@ -11,7 +11,6 @@ export default class CustomDocument extends Document {
         <Head>
           <title>Nomad Store</title>
           <meta name="author" content="Flynn" />
-          <link href="/static/styles.css" rel="stylesheet" />
         </Head>
         <body>
           <Main />
