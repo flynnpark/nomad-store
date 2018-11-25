@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Main, NextScript } from 'next/document';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -8,10 +8,6 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <html>
-        <Head>
-          <title>Nomad Store</title>
-          <meta name="author" content="Flynn" />
-        </Head>
         <body>
           <Main />
           <NextScript />
