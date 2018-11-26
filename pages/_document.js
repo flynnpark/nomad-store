@@ -8,6 +8,7 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <html>
+        <style>{`body { background-color: #eff2f5 !important }`}</style>
         <body>
           <Main />
           <NextScript />

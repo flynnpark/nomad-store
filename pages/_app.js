@@ -1,8 +1,10 @@
 import App, { Container } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
-import withApollo from '../lib/withApollo';
+import { Layout } from 'antd';
 import { ApolloProvider } from 'react-apollo';
+import withApollo from '../lib/withApollo';
+const { Footer } = Layout;
 
 class CustomApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -25,7 +27,10 @@ class CustomApp extends App {
               rel="stylesheet"
             />
           </Head>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+            <Footer>This is important</Footer>
+          </Layout>
         </Container>
       </ApolloProvider>
     );
