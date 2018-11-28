@@ -1,8 +1,10 @@
 import Head from 'next/head';
-import { Layout } from 'antd';
+import { Layout, Row, Card } from 'antd';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
+import ProductCard from '../../components/ProductCard';
 const { Content } = Layout;
+const { Meta } = Card;
 
 export default ({ data }) => (
   <>
@@ -36,6 +38,22 @@ export default ({ data }) => (
             />
           ))}
       </div>
+      <Row gutter={25} style={{ paddingTop: '50px' }}>
+        {data && data.onSale && data.onSale && <h2>On Sale</h2>}
+        {data &&
+          data.onSale &&
+          data.onSale &&
+          data.onSale.map(product => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              subtitle={product.subtitle}
+              price={product.price}
+              photoUrl={product.photo.url}
+            />
+          ))}
+      </Row>
     </Content>
   </>
 );
