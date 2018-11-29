@@ -16,7 +16,7 @@ export const INDEX_QUERY = gql`
         url
       }
     }
-    allProducts: products(where: { sale: false }) {
+    allProducts: products {
       id
       name
       subtitle

@@ -54,6 +54,22 @@ export default ({ data }) => (
             />
           ))}
       </Row>
+      <Row gutter={25} style={{ paddingTop: '50px' }}>
+        {data && data.allProducts && data.allProducts && <h2>All Products</h2>}
+        {data &&
+          data.allProducts &&
+          data.allProducts &&
+          data.allProducts.map(product => (
+            <ProductCard
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              subtitle={product.subtitle}
+              price={product.price}
+              photoUrl={product.photo.url}
+            />
+          ))}
+      </Row>
     </Content>
   </>
 );
