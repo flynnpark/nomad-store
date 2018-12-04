@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import Button from '../../components/Button';
 import ProductCart from '../../components/ProductCard';
 
+const reducerFunction = (price, product) => price + product.price;
+
 export default ({ data }) => (
   <>
     <Head>
@@ -38,7 +40,10 @@ export default ({ data }) => (
         ))}
     </div>
     <div style={{ padding: '0 50px' }}>
-      <h3>Total price: 0</h3>
+      <h3>
+        Total price:{' '}
+        {data && data.cart && `$${data.cart.reduce(reducerFunction, 0)}`}
+      </h3>
       <AntButton>Check out</AntButton>
     </div>
   </>

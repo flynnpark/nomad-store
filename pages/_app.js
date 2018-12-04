@@ -3,6 +3,8 @@ import Head from 'next/head';
 import React from 'react';
 import { Layout } from 'antd';
 import { ApolloProvider } from 'react-apollo';
+import withNProgress from 'next-nprogress';
+import NProgress from 'next-nprogress/component';
 import withApollo from '../lib/withApollo';
 const { Footer } = Layout;
 
@@ -18,6 +20,7 @@ class CustomApp extends App {
     const { Component, pageProps, apollo } = this.props;
     return (
       <ApolloProvider client={apollo}>
+        <NProgress spinner={false} />
         <Container>
           <Head>
             <title>Nomad Store</title>
@@ -37,4 +40,4 @@ class CustomApp extends App {
   }
 }
 
-export default withApollo(CustomApp);
+export default withNProgress()(withApollo(CustomApp));

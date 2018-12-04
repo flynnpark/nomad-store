@@ -1,4 +1,4 @@
-import { Query } from 'apollo-boost';
+import { Query } from 'react-apollo';
 import CartPresenter from './cartPresenter';
 import { CART_QUERY } from './cartQueries';
 

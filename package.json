@@ -10,6 +10,7 @@
     "express": "^4.16.4",
     "graphql": "^14.0.2",
     "next": "^7.0.2",
+    "next-nprogress": "^1.4.0",
     "next-with-apollo": "^3.3.0",
     "react": "^16.6.3",
     "react-apollo": "^2.3.1",
