@@ -37,24 +37,42 @@ export default ({ data }) => (
             />
           ))}
       </div>
-      <Row gutter={25} style={{ paddingTop: '50px' }}>
+      <div style={{ paddingTop: '50px' }}>
         {data && data.onSale && data.onSale && <h2>On Sale</h2>}
-        {data &&
-          data.onSale &&
-          data.onSale &&
-          data.onSale.map(product => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              subtitle={product.subtitle}
-              price={product.price}
-              photoUrl={product.photo.url}
-            />
-          ))}
-      </Row>
-      <Row gutter={25} style={{ paddingTop: '50px' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridGap: '10px',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+            width: '100%'
+          }}
+        >
+          {data &&
+            data.onSale &&
+            data.onSale &&
+            data.onSale.map(product => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                subtitle={product.subtitle}
+                price={product.price}
+                photoUrl={product.photo.url}
+              />
+            ))}
+        </div>
+      </div>
+      <div style={{ paddingTop: '50px' }}>
         {data && data.allProducts && data.allProducts && <h2>All Products</h2>}
+      </div>
+      <div
+        style={{
+          display: 'grid',
+          gridGap: '10px',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+          width: '100%'
+        }}
+      >
         {data &&
           data.allProducts &&
           data.allProducts &&
@@ -68,7 +86,7 @@ export default ({ data }) => (
               photoUrl={product.photo.url}
             />
           ))}
-      </Row>
+      </div>
     </Content>
   </>
 );

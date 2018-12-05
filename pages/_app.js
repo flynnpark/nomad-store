@@ -29,6 +29,16 @@ class CustomApp extends App {
               href="//cdnjs.cloudflare.com/ajax/libs/antd/3.8.1/antd.min.css"
               rel="stylesheet"
             />
+            <style>{`body { background-color: #eff2f5 !important; }`}</style>
+            <meta name="theme-color" content="black" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <meta
+              name="description"
+              content="Nomad Store, Buy all your nomad swag"
+            />
           </Head>
           <Layout>
             <Component {...pageProps} />

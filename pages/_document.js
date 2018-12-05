@@ -7,7 +7,7 @@ export default class CustomDocument extends Document {
   }
   render() {
     return (
-      <html>
+      <html lang="en">
         <style>{`body { background-color: #eff2f5 !important }`}</style>
         <body>
           <Main />
