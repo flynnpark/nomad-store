@@ -21,7 +21,7 @@ export default ({ data }) => (
         marginBottom: '50px',
         display: 'grid',
         gridGap: '10px',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
         width: '100%',
         padding: '0 50px'
       }}
