@@ -16,6 +16,16 @@ class CustomApp extends App {
     }
     return { pageProps };
   }
+
+  componentDidMount() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/serviceWorker.js')
+        .then(result => console.log('ServiceWorker Registered: ', result))
+        .catch(error => console.log("Can't register ServiceWorker: ", error));
+    }
+  }
+
   render() {
     const { Component, pageProps, apollo } = this.props;
     return (
