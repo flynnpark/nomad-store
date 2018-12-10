@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo';
 import withNProgress from 'next-nprogress';
 import NProgress from 'next-nprogress/component';
 import withApollo from '../lib/withApollo';
+import convertDataURIToBinary from '../lib/base64';
 const { Footer } = Layout;
 
 class CustomApp extends App {
@@ -18,10 +19,26 @@ class CustomApp extends App {
   }
 
   componentDidMount() {
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
       navigator.serviceWorker
         .register('/serviceWorker.js')
-        .then(result => console.log('ServiceWorker Registered: ', result))
+        .then(swReg => {
+          console.log('ServiceWorker Registered: ', swReg);
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              swReg.pushManager
+                .subscribe({
+                  userVisibleOnly: true,
+                  applicationServerKey: convertDataURIToBinary(
+                    'BCplUkENepFuM5JHm2q1XdkGSc4_kPDWk-IrOysN1ec8MvHzh531WJwZ6bbPIrIie-d5rSMNbsSwzzELdUVh9i4'
+                  )
+                })
+                .then(pushSubscriptionObject => {
+                  console.log(pushSubscriptionObject);
+                });
+            }
+          });
+        })
         .catch(error => console.log("Can't register ServiceWorker: ", error));
     }
   }
