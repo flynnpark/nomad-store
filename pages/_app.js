@@ -36,12 +36,12 @@ class CustomApp extends App {
                       )
                     })
                     .then(pushSubscriptionObject => {
-                      console.log(pushSubscriptionObject);
+                      console.log(JSON.stringify(pushSubscriptionObject));
                     });
                 }
               });
             } else {
-              console.log(subscription);
+              console.log(JSON.stringify(subscription));
             }
           });
         })
