@@ -24,18 +24,24 @@ class CustomApp extends App {
         .register('/serviceWorker.js')
         .then(swReg => {
           console.log('ServiceWorker Registered: ', swReg);
-          Notification.requestPermission().then(permission => {
-            if (permission === 'granted') {
-              swReg.pushManager
-                .subscribe({
-                  userVisibleOnly: true,
-                  applicationServerKey: convertDataURIToBinary(
-                    'BCplUkENepFuM5JHm2q1XdkGSc4_kPDWk-IrOysN1ec8MvHzh531WJwZ6bbPIrIie-d5rSMNbsSwzzELdUVh9i4'
-                  )
-                })
-                .then(pushSubscriptionObject => {
-                  console.log(pushSubscriptionObject);
-                });
+          swReg.pushManager.getSubscription().then(subscription => {
+            if (subscription === null) {
+              Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                  swReg.pushManager
+                    .subscribe({
+                      userVisibleOnly: true,
+                      applicationServerKey: convertDataURIToBinary(
+                        'BCplUkENepFuM5JHm2q1XdkGSc4_kPDWk-IrOysN1ec8MvHzh531WJwZ6bbPIrIie-d5rSMNbsSwzzELdUVh9i4'
+                      )
+                    })
+                    .then(pushSubscriptionObject => {
+                      console.log(pushSubscriptionObject);
+                    });
+                }
+              });
+            } else {
+              console.log(subscription);
             }
           });
         })
