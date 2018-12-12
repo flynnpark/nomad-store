@@ -2,7 +2,7 @@ import { Query } from 'react-apollo';
 import CartPresenter from './cartPresenter';
 import { CART_QUERY } from './cartQueries';
 
-const supportedCarts = [
+const supportedCards = [
   {
     supportedMethods: 'basic-card',
     data: {
@@ -25,9 +25,9 @@ export default class extends React.Component {
   }
 
   _onPay = () => {
-    const items = this.cartInfo.cart.map(product => {
+    const displayItems = this.cartInfo.cart.map(product => {
       return {
-        label: product.label,
+        label: product.name,
         amount: {
           currency: 'USD',
           value: product.price
@@ -38,13 +38,16 @@ export default class extends React.Component {
       (price, product) => price + product.price,
       0
     );
-    const paymentRequest = new PaymentRequest(supportedCarts, {
-      items,
+    const paymentRequest = new PaymentRequest(supportedCards, {
+      displayItems,
       total: {
         label: 'Total Price',
         amount: { currency: 'USD', value: total }
       }
     });
-    paymentRequest.show();
+    paymentRequest
+      .show()
+      .then(json => console.log(json))
+      .catch(() => console.log('Payment Cancelled'));
   };
 }
