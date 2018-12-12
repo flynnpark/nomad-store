@@ -7,7 +7,7 @@ const { Content } = Layout;
 
 const reducerFunction = (price, product) => price + product.price;
 
-export default ({ data }) => (
+export default ({ data, onPay }) => (
   <>
     <Head>
       <title>Cart | Nomad Store</title>
@@ -45,7 +45,7 @@ export default ({ data }) => (
         Total price:{' '}
         {data && data.cart && `$${data.cart.reduce(reducerFunction, 0)}`}
       </h3>
-      <AntButton>Check out</AntButton>
+      <AntButton onClick={onPay}>Check out</AntButton>
     </div>
   </>
 );
